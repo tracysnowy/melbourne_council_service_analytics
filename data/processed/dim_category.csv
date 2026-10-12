@@ -1,0 +1,28 @@
+category_id,category,service_desc,sla_target_days
+1,Parks and Trees,Tree Maintenance Services,10
+2,Asset maintenance,Street Lighting Maintenance,21
+3,"Waste, Street Cleaning and Litter",Waste collection services,5
+4,"Waste, Street Cleaning and Litter",Street Cleaning services,5
+5,"Waste, Street Cleaning and Litter",Dumped Rubbish,5
+6,"Waste, Street Cleaning and Litter",Syringe pick-up services,5
+7,"Waste, Street Cleaning and Litter",Missing Bin,5
+8,Parks and Trees,Condition of Assets in Parks,10
+9,Graffiti,Graffiti Removal,7
+10,"Waste, Street Cleaning and Litter",Public Litter Bin,5
+11,"Waste, Street Cleaning and Litter",Missed Bin Collection,5
+12,"Waste, Street Cleaning and Litter",Damaged Bins,5
+13,Parks and Trees,Park Cleaning,10
+14,Parks and Trees,Lawns and Irrigation,10
+15,Roads and Traffic,Road and Footpath Maintenance,14
+16,Roads and Traffic,Drain Maintenance,14
+17,Parking,Parking Meter Service,3
+18,Asset maintenance,Street Maintenance,21
+19,Parking,Parking Compliance Services,3
+20,Roads and Traffic,Traffic Management,14
+21,Asset maintenance,Public Toilets,21
+22,Parks and Trees,Sport and Playground Facilities,10
+23,Asset maintenance,Bridge Maintenance,21
+24,"Waste, Street Cleaning and Litter",Waste Compactor,5
+25,Asset maintenance,Bike pod services,21
+26,"Waste, Street Cleaning and Litter",Organic Waste,5
+27,"Waste, Street Cleaning and Litter",Waterways,5
