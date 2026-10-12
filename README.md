@@ -100,6 +100,8 @@ CALCULATE(
     fact_service_requests[sla_status] = "Breached",
     (fact_service_requests[days_to_complete] - fact_service_requests[sla_target_days]) > 30
 )
+```
+</details>
 
 ---
 
