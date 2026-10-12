@@ -12,9 +12,9 @@ An end-to-end operational audit and decision-support BI project analyzing public
 
 ## 📌 Project Overview & Problem Statement
 
-Local city councils face the challenge of managing high volumes of public service requests while maintaining strict Service Level Agreement (SLA) standards. When SLAs are repeatedly breached, operational transparency drops, resident satisfaction declines, and maintenance costs increase.
+Local city councils face the challenge of managing high volumes of public service requests while maintaining timely resolution standards. Because official Service Level Agreements (SLAs) are not publicly disclosed in the open dataset, this project establishes analytical SLA benchmarks based on exploratory data analysis and service complexity to evaluate turnaround efficiency.
 
-* **Business Problem:** The City of Melbourne experienced an overall **38.59% SLA breach rate** (17,611 out of 45,631 completed tickets breached), alongside an active backlog of **848 unresolved requests** pending for up to 708 days.
+* **Business Problem:** Under this evaluated SLA framework, the City of Melbourne experienced an overall **38.59% SLA breach rate** (17,611 out of 45,631 completed tickets breached), alongside an active backlog of **848 unresolved requests** delayed for up to 708 days.
 * **Objective:** Build an end-to-end Power BI reporting system to:
   1. Audit request volumes and council-wide SLA compliance trends.
   2. Pinpoint functional and geographic bottlenecks causing ticket delays.
@@ -36,11 +36,12 @@ The reporting architecture uses a normalized **Star Schema** to ensure fast quer
   * `dim_suburb`: Suburbs within the City of Melbourne council area.
 
 ### Data Quality & Logic Rules
+* **SLA Benchmark Definition:** Because official SLA targets are not publicly published in the council's open dataset, SLA benchmarks (`sla_target_days`) were established following exploratory data analysis based on service request complexity (e.g., 3-day, 5-day, or 10-day operational baselines).
 * **SLA Status Segmentation:**
-  * Closed Requests (`request_status = 'CLOSED'`): Evaluated definitively as either 'Met' or 'Breached' based on actual days taken versus the SLA target.
-  * Active Requests (`request_status` in WIP, NEW, REASSIGNED, ACTIONED): Standardized under 'Pending' to track active operational backlog without skewing historical completion metrics.
+  * Closed Requests (`request_status = 'CLOSED'`): Evaluated as either 'Met' or 'Breached' based on actual days taken versus the SLA target.
+  * Active Requests (`request_status` in WIP, NEW, REASSIGNED, ACTIONED): Grouped under 'Pending' to track active operational backlog without skewing completed turnaround metrics.
 * **Metric Calculation Rule:** `Avg Resolution Days` strictly excludes `sla_status = 'Pending'` to ensure only finalized tickets are measured.
-* **Geographic Data Handling:** Missing suburb records (which account for 67.7% of pending requests) were labeled as "Unspecified Suburb" rather than dropped, preventing misleading suburb-level comparisons while preserving the full audit trail.
+* **Geographic Data Handling:** Missing suburb records (which account for 67.7% of pending requests) were labeled as "Unspecified" rather than dropped, preventing misleading suburb-level comparisons while preserving the full audit trail.
 
 ---
 
