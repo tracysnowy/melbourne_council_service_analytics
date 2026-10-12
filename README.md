@@ -108,7 +108,7 @@ CALCULATE(
 ## 📊 Dashboard Walkthrough & Key Insights
 
 ### Page 1: Executive Overview (Council-Wide SLA & Demand Performance)
-![Executive Overview](./images/page1_executive_overview.png)
+![Executive Overview](./images/page1_executive_overview.jpeg)
 
 * **Key Metrics:** 46,479 total requests, 38.59% overall SLA breach rate (17,611 breached cases), and 848 pending backlog items.
 * **24-Month Demand Trend:** Breach rates peaked during mid-2015 and Q2 2016, showing regular performance dips when request volume spikes after holidays.
@@ -121,7 +121,7 @@ CALCULATE(
 ---
 
 ### Page 2: Operations Audit (Pending Backlog & Workflow Bottlenecks)
-![Operations Audit](./images/page2_operations_audit.png)
+![Operations Audit](./images/page2_operations_audit.jpeg)
 
 * **Backlog Aging:** The active backlog averages 104.5 pending days, with the oldest unresolved requests lingering up to 708 days.
 * **Weekly Inflow Surge:** Ticket creation concentrates heavily on Mondays (~9.6K requests), creating dispatch pressure for the rest of the work week.
@@ -132,10 +132,10 @@ CALCULATE(
 ---
 
 ### Page 3: Root Cause Analysis & Strategic Recommendations
-![Root Cause Analysis](./images/page3_root_cause_and_action.png)
+![Root Cause Analysis](./images/page3_root_cause_and_action.jpeg)
 
 * **Root Cause 1 - Unrealistic SLA Targets (Parking Meter Service):**
-  * Resolution averages 92.5 days against an aggressive 3-day target (71.2% breach rate), with 426 cases delayed by more than 30 days.
+  * Resolution averages 92.5 days against a 3-day target (71.2% breach rate), with 426 cases delayed by more than 30 days.
   * The flat 3-day SLA fails to account for complex hardware repairs and external contractor dependency, treating them the same as minor software resets.
 * **Root Cause 2 - Systemic Capacity Shortage (Park Cleaning):**
   * Delays are council-wide rather than localized: 76.88% overall breach rate, averaging 42.6 days against a 10-day target.
@@ -162,12 +162,18 @@ CALCULATE(
 melbourne_council_service_analytics/
 │
 ├── data/                                 # Raw & processed datasets
+│   ├── processed/
+│   └── raw/
 ├── images/                               # Dashboard screenshots for documentation
-│   ├── page1_executive_overview.png
-│   ├── page2_operations_audit.png
-│   └── page3_root_cause_and_action.png
-├── scripts/                              # Data exploration, transformation & pipeline scripts (Python)
+│   ├── page1_executive_overview.jpeg
+│   ├── page2_operations_audit.jpeg
+│   └── page3_root_cause_and_action.jpeg
+├── scripts/                              # Data processing pipeline scripts (Python)
+│   ├── explore.py                        # Exploratory data analysis (EDA)
+│   ├── etl_pipeline.py                   # Data cleaning & SLA logic standardization
+│   └── build_database.py                 # SQLite database construction & star schema load
 ├── sql/                                  # Data modeling & analytical queries (SQLite)
+│   └── analysis_queries.sql              # SLA performance & backlog audit queries
 ├── melbourne_council_service_performance.pbix  # Main Power BI Model & Dashboard
 ├── melbourne_council_service_performance.pdf   # Multi-page presentation report
 ├── .gitignore                            # Git exclusion rules (.venv, .vscode)
